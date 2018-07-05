@@ -278,7 +278,16 @@ func getJSON(url, apiKey string, data interface{}) error {
 		return fmt.Errorf(string(content))
 	}
 
-	if err := json.NewDecoder(resp.Body).Decode(data); err != nil {
+	content, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	//log.Infof("Starting Server: %s", *content)
+
+	json.Unmarshal(content, &data)
+	return nil
+
+	if err = json.NewDecoder(resp.Body).Decode(data); err != nil {
 		return err
 	}
 
