@@ -1,6 +1,6 @@
 # PowerDNS Exporter
 
-[![Travis](https://img.shields.io/travis/janeczku/powerdns_exporter.svg)](https://travis-ci.org/janeczku/powerdns_exporter)
+[![Build Status](https://travis-ci.org/Garogat/powerdns_exporter.svg?branch=master)](https://travis-ci.org/Garogat/powerdns_exporter)
 
 [PowerDNS](https://www.powerdns.com/) exporter for [Prometheus](http://prometheus.io/)
 
@@ -44,7 +44,7 @@ A Makefile is provided in case you find a need for it.
 Then run the exporter like this:
 
 ```bash
-go run powerdns_exporter api-url="http://<HOST>:<API-PORT>/" -api-key="<YOUR_API_KEY>"
+go run powerdns_exporter -api-url http://<HOST>:<API-PORT>/ -api-key=<YOUR_API_KEY>
 ```
 
 Show help:
@@ -57,4 +57,4 @@ go run powerdns_exporter --help
 
 To run the PowerDNS exporter as a Docker container, run:
 
-    $ docker run -p 9120:9120 janeczku/powerdns-exporter -api-url="http://<HOST>:<API-PORT>/" -api-key="<YOUR_API_KEY>"
+    $ docker run -p 9120:9120 anbraten/powerdns-exporter -api-url http://<HOST>:<API-PORT>/ -api-key <YOUR_API_KEY>
