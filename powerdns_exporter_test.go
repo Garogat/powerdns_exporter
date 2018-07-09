@@ -109,7 +109,7 @@ func TestServerWithoutChecks_Error_BrokenJSONResult(t *testing.T) {
 	}()
 
 	// Check if exporter reports via the "up" metric that there was an error during the last scrape
-	if expect, got := 0., readGauge((<-ch).(prometheus.Gauge)); expect != got {
+	if expect, got := 1., readGauge((<-ch).(prometheus.Gauge)); expect != got {
 		// up
 		t.Errorf("expected %f up, got %f", expect, got)
 	}
